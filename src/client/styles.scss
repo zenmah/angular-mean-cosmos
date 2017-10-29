@@ -1,8 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
-* {
-    font-family: Arial;
-  }
   h2 {
     color: #444;
     font-weight: lighter;
@@ -50,6 +46,64 @@
   }
   
   .heroes {
+    box-sizing: content-box;
+    float: left;
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    li {
+      cursor: pointer;
+      position: relative;
+      left: 0;
+      background-color: #eee;
+      margin: .5em;
+      padding: .5em;
+      height: 3.0em;
+      border-radius: 4px;
+      width: 17em;
+      &:hover {
+        color: #607d8b;
+        color: rgb(0, 120, 215);
+        background-color: #ddd;
+        left: .1em;
+      }
+      &.selected:hover {
+        /*background-color: #BBD8DC !important;*/
+        color: white;
+      }
+    }
+    .text {
+      position: relative;
+      top: -3px;
+    }
+    .saying {
+      margin: 5px 0;
+    }
+    .name {
+      font-weight: bold;
+    }
+    .badge {
+      /* display: inline-block; */
+      float: left;
+      font-size: small;
+      color: white;
+      padding: 0.7em 0.7em 0 0.5em;
+      background-color: #607d8b;
+      background-color: rgb(0, 120, 215);
+      background-color:rgb(134, 183, 221);
+      line-height: 1em;
+      position: relative;
+      left: -1px;
+      top: -4px;
+      height: 3.0em;
+      margin-right: .8em;
+      border-radius: 4px 0 0 4px;
+      width: 1.2em;
+    }
+  }
+
+  .scripts {
+    box-sizing: content-box;
     float: left;
     margin: 0 0 2em 0;
     list-style-type: none;
@@ -137,6 +191,7 @@
   
   .editarea {
     float: left;
+    min-width: 500px;
     input {
       margin: 4px;
       height: 20px;

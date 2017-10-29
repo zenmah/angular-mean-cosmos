@@ -1,2 +1,23 @@
-<h1>  Heroes </h1>
-<app-heroes></app-heroes>
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+        <h1> Heroes </h1>
+    </ng-template>
+    <ng-template ngbPanelContent>
+        <app-heroes></app-heroes>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel>
+      <ng-template ngbPanelTitle>
+          <h1>Scripts</h1>
+      </ng-template>
+      <ng-template ngbPanelContent>
+          <app-scripts></app-scripts>
+      </ng-template>
+    </ngb-panel>
+</ngb-accordion>
+    
+    
+
+    
+    

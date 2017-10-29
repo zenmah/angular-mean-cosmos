@@ -1,0 +1,39 @@
+<div>
+  <ul class="scripts">
+    <li *ngFor="let script of scripts" (click)="onSelect(script)" [class.selected]="script === selectedScript">
+      <button class="delete-button" (click)="deleteScript(script)">Delete</button>
+      <div class="script-element">
+        <div class="sequence">{{script.sequence}}</div>
+        <div class="name">{{script.name}}</div>
+      </div>
+    </li>
+  </ul>
+  <div class="editarea">
+    <button (click)="enableAddMode()">Add New script</button>
+    <div *ngIf="selectedScript">
+      <div class="editfields">
+        <div>
+          <label>name: </label>
+          <input [(ngModel)]="selectedScript.name" placeholder="name" />
+        </div>
+        <div>
+          <label>sequence: </label>
+          <input [(ngModel)]="selectedScript.sequence" placeholder="sequence"/>
+        </div>
+
+        <div>
+          <label>Content: </label>
+          <div ace-editor [(text)]="selectedScript.content" 
+            [mode]="'sql'"
+            
+            [autoUpdateContent]="true"
+            [durationBeforeCallback]="1000"
+            style="min-height: 200px; min-width:500 px; overflow:auto" ></div>
+          <textarea style="min-height: 200px; min-width:500 px; overflow:auto">{{selectedScript.content}}</textarea>
+        </div>
+      </div>
+      <button (click)="cancel()">Cancel</button>
+      <button (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

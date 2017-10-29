@@ -7,13 +7,16 @@ mongoose.Promise = global.Promise;
 
 const env = require('./env/environment');
 
-// eslint-disable-next-line max-len
-const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+function getMongoUri(connection){
+  // eslint-disable-next-line max-len
+  return `mongodb://${connection.accountName}:${connection.key}@${connection.accountName}.documents.azure.com:${connection.cosmosPort}/${connection.databaseName}?ssl=true`; //&replicaSet=globaldb`;
+}
 
 function connect() {
- mongoose.set('debug', true);
- return mongoose.connect(mongoUri, { useMongoClient: true });
-}
+  mongoose.set('debug', true);
+  console.log(getMongoUri(env.scriptsDb));
+  return mongoose.connect(getMongoUri(env.scriptsDb), { useMongoClient: true });
+ }
 
 module.exports = {
   connect,
